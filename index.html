@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChilliApp - Cozy Space</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. AUTHENTICATION SCREEN -->
+    <div id="auth-screen" class="screen active">
+        <div class="auth-card">
+            <div class="brand">
+                <span class="logo-icon">🌶️</span>
+                <h1>ChilliApp</h1>
+                <p>Your cozy space for AI, Habits & Focus</p>
+            </div>
+            <form id="auth-form">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="e.g., CozyGamer" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn-primary">Enter Space</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MAIN APP WRAPPER (Hidden until login) -->
+    <div id="main-container" class="hidden">
+        
+        <!-- GLOBAL HEADER / NAV -->
+        <header class="app-header">
+            <div class="user-profile">
+                <span class="user-avatar">🎮</span>
+                <span id="display-username">User</span>
+            </div>
+            <button id="global-back-btn" class="btn-back hidden">← Back</button>
+        </header>
+
+        <!-- 2. HOME SCREEN (DASHBOARD) -->
+        <div id="home-screen" class="sub-screen active">
+            <div class="welcome-banner">
+                <h2>Welcome back, <span class="highlight" id="banner-user">Player</span>!</h2>
+                <p>Choose a capsule to start your journey today.</p>
+            </div>
+            <div class="main-menu-grid">
+                <div class="menu-card" data-target="section-ai">
+                    <div class="card-icon">🧠</div>
+                    <h3>AI Core</h3>
+                    <p>Calorie tracker, height estimation & styling</p>
+                </div>
+                <div class="menu-card" data-target="section-english">
+                    <div class="card-icon">🌱</div>
+                    <h3>1-Min English</h3>
+                    <p>Build your virtual gaming room by learning</p>
+                </div>
+                <div class="menu-card" data-target="section-study">
+                    <div class="card-icon">⏳</div>
+                    <h3>Study & Chill</h3>
+                    <p>Pomodoro, puzzles, math & curation</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SECTION 1: AI CORE ================= -->
+        <div id="section-ai" class="sub-screen hidden">
+            <h2 class="section-title">🧠 AI Core Hub</h2>
+            <div class="options-grid">
+                <div class="option-card" data-sub="ai-calories">
+                    <h4>Calorie Scanner</h4>
+                    <p>Upload a food picture to count nutrition.</p>
+                </div>
+                <div class="option-card" data-sub="ai-height">
+                    <h4>Height Estimator</h4>
+                    <p>Full-body scanner for proportional height.</p>
+                </div>
+                <div class="option-card" data-sub="ai-style">
+                    <h4>Thermal Stylist</h4>
+                    <p>Perfect outfits generated from temperature.</p>
+                </div>
+            </div>
+
+            <!-- AI Features Output Areas -->
+            <div id="ai-calories" class="ai-feature-panel hidden">
+                <h3>🍲 AI Calorie Counter</h3>
+                <div class="upload-zone" onclick="document.getElementById('food-img').click()">
+                    <p>Click or Drop food image here</p>
+                    <input type="file" id="food-img" accept="image/*" hidden>
+                </div>
+                <div id="food-preview" class="image-preview"></div>
+                <button id="btn-calc-calories" class="btn-accent">Analyze Meal</button>
+                <div id="calories-result" class="result-box hidden"></div>
+            </div>
+
+            <div id="ai-height" class="ai-feature-panel hidden">
+                <h3>🧍 AI Full-Body Height Estimator</h3>
+                <div class="upload-zone" onclick="document.getElementById('body-img').click()">
+                    <p>Click to upload full standing picture</p>
+                    <input type="file" id="body-img" accept="image/*" hidden>
+                </div>
+                <div id="body-preview" class="image-preview"></div>
+                <button id="btn-calc-height" class="btn-accent">Estimate Height</button>
+                <div id="height-result" class="result-box hidden"></div>
+            </div>
+
+            <div id="ai-style" class="ai-feature-panel hidden">
+                <h3>🌡️ Thermal Color Stylist</h3>
+                <div class="input-group-row">
+                    <input type="number" id="temp-input" placeholder="Enter Temp (°C)" min="-30" max="60">
+                    <button id="btn-get-style" class="btn-accent">Get Outfit</button>
+                </div>
+                <div id="style-result" class="result-box hidden"></div>
+            </div>
+        </div>
+
+        <!-- ================= SECTION 2: 1-MIN ENGLISH ================= -->
+        <div id="section-english" class="sub-screen hidden">
+            <!-- Language Setup Screen (Shown once) -->
+            <div id="ln-lang-setup" class="panel-box hidden">
+                <h3>Choose your native language</h3>
+                <p class="subtitle">The app UI will stay in English. Only translations will adapt.</p>
+                <div class="lang-selector-grid">
+                    <button class="btn-lang" data-lang="Arabic">العربية (Arabic)</button>
+                    <button class="btn-lang" data-lang="French">Français (French)</button>
+                    <button class="btn-lang" data-lang="Spanish">Español (Spanish)</button>
+                    <button class="btn-lang" data-lang="Turkish">Türkçe (Turkish)</button>
+                    <button class="btn-lang" data-lang="Japanese">日本語 (Japanese)</button>
+                    <button class="btn-lang" data-lang="Korean">한국어 (Korean)</button>
+                </div>
+            </div>
+
+            <!-- Main English Learning Panel -->
+            <div id="ln-main-hub" class="panel-box hidden">
+                <div class="room-stats-bar">
+                    <div class="streak-badge">🔥 <span id="streak-count">0</span> Days Streak</div>
+                    <div class="current-lang-badge">🌐 Native: <span id="active-lang">None</span></div>
+                </div>
+
+                <!-- Visual Room Canvas Container -->
+                <div class="room-display-wrapper">
+                    <h4>Your Cozy Room</h4>
+                    <div id="virtual-room" class="cozy-room-viewport">
+                        <div id="room-atmosphere-overlay"></div>
+                        <div id="room-items-layer"></div>
+                    </div>
+                </div>
+
+                <!-- Action Button -->
+                <div class="center-action">
+                    <button id="btn-start-lesson" class="btn-primary big-btn">Start Today's Lesson (1 Min)</button>
+                </div>
+            </div>
+
+            <!-- Lesson Screen -->
+            <div id="ln-lesson-view" class="panel-box hidden">
+                <h3 class="lesson-header">Today's Lesson</h3>
+                <div id="cards-stack"></div>
+                <button id="btn-go-quiz" class="btn-accent hidden">Start 20s Challenge! ⚡</button>
+            </div>
+
+            <!-- Quiz Screen -->
+            <div id="ln-quiz-view" class="panel-box hidden">
+                <div class="quiz-timer-bar"><div id="quiz-timer-fill"></div></div>
+                <h3 id="quiz-question">Question here?</h3>
+                <div id="quiz-options-grid"></div>
+            </div>
+
+            <!-- Reward Modal Box -->
+            <div id="reward-modal" class="modal hidden">
+                <div class="modal-content text-center">
+                    <div id="box-animation-container">📦</div>
+                    <h2 id="reward-title">A Mystery Gift Arrived!</h2>
+                    <p id="reward-rarity" class="rarity"></p>
+                    <p id="reward-desc"></p>
+                    <button id="btn-close-reward" class="btn-primary">Place in Room</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SECTION 3: STUDY & CHILL ================= -->
+        <div id="section-study" class="sub-screen hidden">
+            <h2 class="section-title">⏳ Study & Chill Zone</h2>
+            <div class="options-grid">
+                <div class="option-card" data-sub="study-pomodoro">
+                    <h4>Cozy Pomodoro</h4>
+                    <p>Beautiful 25/5 rhythm timer.</p>
+                </div>
+                <div class="option-card" data-sub="study-puzzle">
+                    <h4>Sliding Puzzle</h4>
+                    <p>Rearrange the numbers safely.</p>
+                </div>
+                <div class="option-card" data-sub="study-math">
+                    <h4>Math Infinity</h4>
+                    <p>2,500 adaptive progressive equations.</p>
+                </div>
+                <div class="option-card" data-sub="study-books">
+                    <h4>Book Curator</h4>
+                    <p>Algorithmic suggestions for your soul.</p>
+                </div>
+            </div>
+
+            <!-- 3.1 Pomodoro -->
+            <div id="study-pomodoro" class="study-panel hidden">
+                <h3>⏳ Aesthetics Pomodoro</h3>
+                <div class="pomo-container">
+                    <div class="timer-display-circle">
+                        <span id="pomo-time">25:00</span>
+                        <span id="pomo-state">Focus</span>
+                    </div>
+                    <div class="pomo-controls">
+                        <button id="btn-pomo-start" class="btn-primary">Start</button>
+                        <button id="btn-pomo-pause" class="btn-accent">Pause</button>
+                        <button id="btn-pomo-reset" class="btn-back">Reset</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3.2 Sliding Puzzle -->
+            <div id="study-puzzle" class="study-panel hidden">
+                <div class="panel-header-flex">
+                    <h3>🧩 Number Slider (Level <span id="puzzle-level">1</span>)</h3>
+                    <button id="btn-skip-puzzle" class="btn-small-skip">Skip →</button>
+                </div>
+                <div class="puzzle-board" id="puzzle-grid"></div>
+            </div>
+
+            <!-- 3.3 Math Battle -->
+            <div id="study-math" class="study-panel hidden">
+                <div class="panel-header-flex">
+                    <h3>🔢 Progress Math (<span id="math-index">1</span>/2500)</h3>
+                    <button id="btn-skip-math" class="btn-small-skip">Skip →</button>
+                </div>
+                <div class="math-card">
+                    <div id="math-question" class="math-q-text">5 + 3 = ?</div>
+                    <div id="math-options" class="math-options-stack"></div>
+                </div>
+            </div>
+
+            <!-- 3.4 Book Curator -->
+            <div id="study-books" class="study-panel hidden">
+                <h3>📚 AI Core Book Algorithm</h3>
+                <p class="subtitle">Select between 1 to 5 interests to generate matches:</p>
+                <div id="genres-shelf" class="genres-wrap"></div>
+                <div class="center-action">
+                    <button id="btn-generate-books" class="btn-accent">Run Recommendation Engine</button>
+                </div>
+                <div id="curated-books-result" class="books-result-view hidden"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
