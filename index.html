@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Matrix Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="space-grid-bg"></div>
+
+    <div class="central-container">
+
+        <div id="home-panel" class="view-panel active">
+            <header class="hub-header">
+                <div class="system-badge">SYSTEM VERSION 4.0</div>
+                <h1>CORE OPERATING HUB</h1>
+                <p>Select an architectural sector node to initiate execution</p>
+            </header>
+            
+            <div class="centric-menu">
+                <div class="centric-card" data-target="ai-core-panel">
+                    <div class="vector-icon icon-ai"></div>
+                    <span class="card-title">AI Core Matrix</span>
+                </div>
+                <div class="centric-card" data-target="english-panel">
+                    <div class="vector-icon icon-english"></div>
+                    <span class="card-title">1-Min Miracle English</span>
+                </div>
+                <div class="centric-card" data-target="nexus-panel">
+                    <div class="vector-icon icon-nexus"></div>
+                    <span class="card-title">Nexus Arcade Engine</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="ai-core-panel" class="view-panel">
+            <button class="nav-back-btn">⟵ Back to Main Hub</button>
+            <header class="hub-header">
+                <h1>AI CORE MATRIX</h1>
+                <p>Advanced diagnostic and estimation micro-services</p>
+            </header>
+            <div class="centric-menu">
+                <div class="centric-card option-node" data-view="sub-calorie">
+                    <div class="vector-icon icon-scan"></div>
+                    <span class="card-title">Vision Calorie Counter</span>
+                </div>
+                <div class="centric-card option-node" data-view="sub-height">
+                    <div class="vector-icon icon-height"></div>
+                    <span class="card-title">Height Estimation Matrix</span>
+                </div>
+                <div class="centric-card option-node" data-view="sub-outfit">
+                    <div class="vector-icon icon-palette"></div>
+                    <span class="card-title">Microclimate Stylist</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="english-panel" class="view-panel">
+            <button class="nav-back-btn">⟵ Back to Main Hub</button>
+            <header class="hub-header">
+                <h1>MIRACLE ENGLISH LAB</h1>
+                <p>Hyper-progressive linguistic injection and memory anchoring</p>
+            </header>
+            <div class="centric-menu">
+                <div class="centric-card option-node" data-view="sub-eng-learn">
+                    <div class="vector-icon icon-learn"></div>
+                    <span class="card-title">Linguistic Absorption Engine</span>
+                </div>
+                <div class="centric-card option-node" data-view="sub-eng-quiz">
+                    <div class="vector-icon icon-verify"></div>
+                    <span class="card-title">Rapid Verification Matrix</span>
+                </div>
+                <div class="centric-card option-node" data-view="sub-eng-room">
+                    <div class="vector-icon icon-sanctuary"></div>
+                    <span class="card-title">Spatial Sanctuary Viewport</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="nexus-panel" class="view-panel">
+            <button class="nav-back-btn">⟵ Back to Main Hub</button>
+            <header class="hub-header">
+                <h1>NEXUS ARCADE ENGINE</h1>
+                <p>Isolate cognition and logic optimization sequences</p>
+            </header>
+            <div class="centric-menu">
+                <div class="centric-card option-node" data-view="sub-pomo">
+                    <div class="vector-icon icon-timer"></div>
+                    <span class="card-title">Aesthetic Chronometer</span>
+                </div>
+                <div class="centric-card option-node" data-view="sub-puzzle">
+                    <div class="vector-icon icon-matrix"></div>
+                    <span class="card-title">Matrix Sort Engine</span>
+                </div>
+                <div class="centric-card option-node" data-view="sub-math">
+                    <div class="vector-icon icon-logic"></div>
+                    <span class="card-title">Linear Logic Core</span>
+                </div>
+                <div class="centric-card option-node" data-view="sub-books">
+                    <div class="vector-icon icon-library"></div>
+                    <span class="card-title">Literary Matrix Filter</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="sub-calorie" class="view-panel operational-view">
+            <button class="sub-back-btn">⟵ Back to Sector Menu</button>
+            <div class="glass-terminal">
+                <h2>Vision Calorie Counter</h2>
+                <div class="dropzone" onclick="document.getElementById('file-cal').click()">
+                    <input type="file" id="file-cal" hidden>
+                    <p id="txt-cal">Click to feed structural meal capture imagery</p>
+                </div>
+                <button class="action-btn active-blue" id="run-cal">Compute Biomass Metrics</button>
+                <div class="console-box hidden" id="log-cal"></div>
+            </div>
+        </div>
+
+        <div id="sub-height" class="view-panel operational-view">
+            <button class="sub-back-btn">⟵ Back to Sector Menu</button>
+            <div class="glass-terminal">
+                <h2>Height Estimation Matrix</h2>
+                <div class="dropzone" onclick="document.getElementById('file-h').click()">
+                    <input type="file" id="file-h" hidden>
+                    <p id="txt-h">Upload vertical body alignment profile</p>
+                </div>
+                <button class="action-btn active-blue" id="run-h">Initiate Height Telemetry</button>
+                <div class="console-box hidden" id="log-h"></div>
+            </div>
+        </div>
+
+        <div id="sub-outfit" class="view-panel operational-view">
+            <button class="sub-back-btn">⟵ Back to Sector Menu</button>
+            <div class="glass-terminal">
+                <h2>Microclimate Stylist</h2>
+                <div class="numeric-field">
+                    <input type="number" id="temp-in" placeholder="0.0">
+                    <span class="field-label">°C</span>
+                </div>
+                <button class="action-btn active-blue" id="run-outfit">Generate Chromatic Layout</button>
+                <div class="console-box hidden" id="log-outfit"></div>
+            </div>
+        </div>
+
+        <div id="sub-eng-learn" class="view-panel operational-view">
+            <button class="sub-back-btn">⟵ Back to Sector Menu</button>
+            <div class="glass-terminal engine-terminal">
+                <div class="engine-hud">
+                    <span class="hud-tag text-purple">ADVANCED ACQUISITION NODE</span>
+                    <span class="hud-tag" id="eng-streak-hud">STREAK: 0</span>
+                </div>
+                <div class="interactive-learning-card" id="miracle-card-viewport">
+                    </div>
+                <div class="engine-controls">
+                    <button class="action-btn active-dim" id="prev-card-btn">Retreat Step</button>
+                    <button class="action-btn active-purple" id="next-card-btn">Absorb Matrix</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="sub-eng-quiz" class="view-panel operational-view">
+            <button class="sub-back-btn">⟵ Back to Sector Menu</button>
+            <div class="glass-terminal">
+                <div class="quiz-timer-row">
+                    <h3>Linguistic Verification Matrix</h3>
+                    <div class="clock-digits" id="quiz-timer">20.00</div>
+                </div>
+                <div class="loading-bar-container"><div class="loading-bar-fill" id="quiz-progress"></div></div>
+                <p class="matrix-prompt" id="quiz-question-text">Awaiting transmission matrix...</p>
+                <div class="options-vertical-stack" id="quiz-options-container"></div>
+            </div>
+        </div>
+
+        <div id="sub-eng-room" class="view-panel operational-view">
+            <button class="sub-back-btn">⟵ Back to Sector Menu</button>
+            <div class="room-architecture">
+                <div class="room-canvas" id="room-viewport">
+                    <div class="sky-dome" id="room-sky"></div>
+                    <div class="object-layer" id="room-objects"></div>
+                </div>
+                <div class="inventory-shelf">
+                    <h4>Collected Architectural Modules</h4>
+                    <div class="shelf-flex" id="room-shelf-items"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="sub-pomo" class="view-panel operational-view">
+            <button class="sub-back-btn">⟵ Back to Sector Menu</button>
+            <div class="glass-terminal center-text">
+                <h4 class="hud-tag text-pink" id="pomo-label">FOCUS INTERVAL</h4>
+                <div class="giant-clock" id="pomo-display">25:00</div>
+                <div class="dual-row">
+                    <button class="action-btn active-pink" id="pomo-start">Execute</button>
+                    <button class="action-btn active-dim" id="pomo-reset">Purge</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="sub-puzzle" class="view-panel operational-view">
+            <button class="sub-back-btn">⟵ Back to Sector Menu</button>
+            <div class="glass-terminal">
+                <div class="engine-hud">
+                    <h3>Matrix Sort Engine</h3>
+                    <span class="hud-tag">LEVEL: <span id="puz-lvl">1</span></span>
+                </div>
+                <div class="puzzle-matrix-grid" id="puzzle-board"></div>
+            </div>
+        </div>
+
+        <div id="sub-math" class="view-panel operational-view">
+            <button class="sub-back-btn">⟵ Back to Sector Menu</button>
+            <div class="glass-terminal">
+                <div class="engine-hud">
+                    <h3>Linear Logic Core</h3>
+                    <span class="hud-tag">NODE: <span id="math-node-text">1</span> / 2500</span>
+                </div>
+                <div class="math-expression" id="math-expr">...</div>
+                <div class="math-grid-options" id="math-options"></div>
+            </div>
+        </div>
+
+        <div id="sub-books" class="view-panel operational-view">
+            <button class="sub-back-btn">⟵ Back to Sector Menu</button>
+            <div class="glass-terminal">
+                <h2>Literary Recommendation Engine</h2>
+                <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom:15px;">Isolate semantic interest vectors:</p>
+                <div class="vector-cloud" id="genre-cloud-container"></div>
+                <button class="action-btn active-blue w-100" id="run-books" style="margin-top:15px;">Run Synthesis Engine</button>
+                <div class="console-box hidden" id="log-books"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
